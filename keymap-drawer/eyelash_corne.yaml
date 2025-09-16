@@ -14,7 +14,7 @@ layers:
   - O
   - P
   - {t: '[', s: '{'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&td_sc'
   - {t: A, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
   - {t: D, h: '$$mdi:apple-keyboard-control$$'}
