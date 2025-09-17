@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Call keymap-drawer reusable workflow
         uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
-        permissions:
-          contents: write
         with:
           commit_message: ${{ inputs.commit_message }}
           destination: ${{ inputs.destination }}
