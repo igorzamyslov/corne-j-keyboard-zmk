@@ -1,18 +1,17 @@
 name: Draw Keymap
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - "config/**"
-      - .github/workflows/draw.yml
-      - keymap_drawer.config.yaml
+  workflow_run:
+    workflows: ["Build ZMK firmware"]
+    types:
+      - completed
 
 jobs:
   draw:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
       contents: write
     with:
-      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
+      commit_message: "[Draw] ${{ github.event.workflow_run.head_commit.message }}"
       destination: "commit"
       fail_on_error: ${{ fromJSON(true) }}
