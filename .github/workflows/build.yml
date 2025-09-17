@@ -13,7 +13,7 @@ jobs:
   draw:
     needs: build
     if: ${{ needs.build.result == 'success' }}
-    uses: ./.github/workflows/draw-reusable.yml
+    uses: ./.github/workflows/reusable/draw.yml
     permissions:
       contents: write
     with:
