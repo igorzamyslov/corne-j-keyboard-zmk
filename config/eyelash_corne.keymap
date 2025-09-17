@@ -74,9 +74,9 @@
 
         default {
             bindings = <
-&trans      &kp Q        &kp W        &kp E         &kp R         &kp T                                              &trans                        &kp Y                    &kp U            &kp I         &kp O            &kp P           &kp LBKT
+&none       &kp Q        &kp W        &kp E         &kp R         &kp T                                              &none                         &kp Y                    &kp U            &kp I         &kp O            &kp P           &kp LBKT
 &caps_word  &mtl LGUI A  &mtl LALT S  &mtl LCTRL D  &mtl LSHFT F  &mtl LS(LA(LC(LGUI))) G                &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &mtr LS(LA(LC(LGUI))) H  &mtr RSHFT J     &mtr RCTRL K  &mtr LEFT_ALT L  &mtr LGUI SEMI  &kp SQT
-&trans      &kp Z        &kp X        &kp C         &kp V         &kp B                    &kp C_MUTE                &trans                        &kp N                    &kp M            &kp COMMA     &kp DOT          &kp FSLH        &kp BSLH
+&none       &kp Z        &kp X        &kp C         &kp V         &kp B                    &kp C_MUTE                &none                         &kp N                    &kp M            &kp COMMA     &kp DOT          &kp FSLH        &kp BSLH
                                       &lt 1 ESC     &lt 2 SPACE   &lt 3 TAB                                                                        &lt 4 ENTER              &lt 5 BACKSPACE  &lt 6 DEL
             >;
 
@@ -85,64 +85,64 @@
 
         keyboard {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                    &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none                  &none         &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none           &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none           &none         &none  &none  &none  &none  &none  &none
+                     &none  &none  &none                                &none  &none  &none
             >;
         };
 
         navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                    &trans  &trans  &trans
+&none  &none     &none     &none      &none      &none                                          &msc SCRL_UP                     &none     &none      &none      &none      &none  &none
+&none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp LS(LA(LC(LGUI)))           &msc SCRL_LEFT  &kp RET         &msc SCRL_RIGHT  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &none  &none
+&none  &none     &none     &none      &none      &none                 &none                    &msc SCRL_DOWN                   &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &none  &none
+                           &kp ESC    &none      &kp TAB                                                                         &kp RET   &kp BSPC   &kp DEL
             >;
         };
 
         mouse {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                    &trans  &trans  &trans
+&none  &none     &none     &none      &none      &none                                          &mmv MOVE_UP                     &none           &none           &none         &none            &none  &none
+&none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp LS(LA(LC(LGUI)))           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
+&none  &none     &none     &none      &none      &none                 &none                    &mmv MOVE_DOWN                   &mkp MB4        &msc SCRL_DOWN  &msc SCRL_UP  &mkp MB5         &none  &none
+                           &kp ESC    &kp SPACE  &none                                                                           &kp RET         &kp BSPC        &kp DEL
             >;
         };
 
         symbol {
             bindings = <
-&trans  &kp LS(CARET)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(TILDE)                    &trans          &trans                &trans     &trans     &trans    &trans    &trans
-&trans  &kp LS(AMPS)   &kp LS(EXCL)  &kp LBKT      &kp RBKT      &kp EQUAL                &trans  &trans  &trans  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp LS(PRCNT)  &kp LS(AT)    &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(DLLR)   &trans            &trans          &trans                &trans     &trans     &trans    &trans    &trans
-                                     &kp ESC       &kp SPACE     &kp LS(UNDER)                                    &trans                &kp BSPC   &kp DEL
+&none  &kp LS(CARET)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(TILDE)                  &none         &none                 &none      &none      &none     &none     &none
+&none  &kp LS(AMPS)   &kp LS(EXCL)  &kp LBKT      &kp RBKT      &kp EQUAL               &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp LS(PRCNT)  &kp LS(AT)    &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(DLLR)   &none           &none         &none                 &none      &none      &none     &none     &none
+                                    &kp ESC       &kp SPACE     &kp LS(UNDER)                                &none                 &kp BSPC   &kp DEL
             >;
         };
 
         number {
             bindings = <
-&trans  &kp LS(COLON)  &kp N7  &kp N8  &kp N9     &kp GRAVE                        &trans          &trans                &trans     &trans     &trans    &trans    &trans
-&trans  &kp LS(STAR)   &kp N4  &kp N5  &kp N6     &kp LS(PLUS)             &trans  &trans  &trans  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp FSLH       &kp N1  &kp N2  &kp N3     &kp LS(POUND)  &trans            &trans          &trans                &trans     &trans     &trans    &trans    &trans
-                               &kp N0  &kp SPACE  &kp MINUS                                        &kp RET               &trans     &kp DEL
+&none  &kp LS(COLON)  &kp N7  &kp N8  &kp N9     &kp GRAVE                      &none         &none                 &kp LS(LPAR)  &kp LS(RPAR)  &none     &none     &none
+&none  &kp LS(STAR)   &kp N4  &kp N5  &kp N6     &kp LS(PLUS)            &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT     &kp LCTRL     &kp LALT  &kp LGUI  &none
+&none  &kp FSLH       &kp N1  &kp N2  &kp N3     &kp LS(POUND)  &none           &none         &none                 &none         &kp COMMA     &kp DOT   &kp FSLH  &kp BSLH
+                              &kp N0  &kp SPACE  &kp MINUS                                    &kp RET               &none         &kp DEL
             >;
         };
 
         function {
             bindings = <
-&trans  &kp F12  &kp F7  &kp F8    &kp F9     &kp PRINTSCREEN                    &trans          &trans                &trans     &trans     &trans    &trans    &trans
-&trans  &kp F11  &kp F4  &kp F5    &kp F6     &kp INSERT                 &trans  &trans  &trans  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp F10  &kp F1  &kp F2    &kp F3     &trans           &trans            &trans          &trans                &trans     &trans     &trans    &trans    &trans
-                         &kp BSPC  &kp SPACE  &kp TAB                                            &kp RET               &kp BSPC   &trans
+&none  &kp F12  &kp F7  &kp F8    &kp F9     &kp PRINTSCREEN                  &none         &none                 &none      &none      &none     &none     &none
+&none  &kp F11  &kp F4  &kp F5    &kp F6     &kp INSERT                &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp F10  &kp F1  &kp F2    &kp F3     &none            &none           &none         &none                 &none      &none      &none     &none     &none
+                        &kp BSPC  &kp SPACE  &kp TAB                                        &kp RET               &kp BSPC   &none
             >;
         };
 
         gaming {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                    &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none                  &none         &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none           &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none           &none         &none  &none  &none  &none  &none  &none
+                     &none  &none  &none                                &none  &none  &none
             >;
         };
     };
