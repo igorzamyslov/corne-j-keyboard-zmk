@@ -84,7 +84,7 @@ layers:
   - X
   - C
   - V
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: default, h: toggle}
   - N
   - M
@@ -92,9 +92,9 @@ layers:
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
-  - {t: '$$mdi:keyboard-esc$$', h: number}
+  - '&test_macro'
   - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-return$$', h: function}
+  - {t: '$$mdi:keyboard-return$$', h: number}
   - {t: default, h: toggle}
   - PRINTSCREEN
   - LGUI
@@ -337,9 +337,9 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: \, s: '|'}
-  - {t: '0', s: ), type: held alternate}
+  - {t: '0', s: )}
   - $$mdi:keyboard-space$$
-  - {t: '-', s: _}
+  - {t: '-', s: _, type: held alternate}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: held}
   - $$mdi:backspace-reverse-outline$$
@@ -388,7 +388,7 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-tab$$', type: held alternate}
+  - $$mdi:keyboard-tab$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:minus-circle-outline$$', type: held}
