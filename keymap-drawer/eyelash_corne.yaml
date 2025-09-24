@@ -92,12 +92,12 @@ layers:
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
-  - '&test_macro'
+  - $$mdi:keyboard-esc$$
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', h: number}
-  - {t: default, h: toggle}
-  - PRINTSCREEN
   - LGUI
+  - PRINTSCREEN
+  - function
   keyboard:
   - $$mdi:bluetooth-off$$
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
