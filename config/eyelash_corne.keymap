@@ -74,7 +74,10 @@
         test_macro: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap_time 30>, <&lt 6 ESC>;
+            bindings =
+                <&macro_tap_time 50>,
+                <&lt 6 ESC>,
+                <&macro_pause_for_release>;
 
             label = "NEW_MACRO";
         };
