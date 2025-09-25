@@ -86,10 +86,10 @@
 
         gaming {
             bindings = <
-&kp GRAVE  &kp I      &kp Q  &kp W    &kp E      &kp R                                 &kp LG(G)              &kp Y     &kp U            &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB    &kp LSHFT  &kp A  &kp S    &kp D      &kp F                     &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp H     &kp J            &kp K      &kp L     &kp UP    &kp ENTER
-&kp LALT   &kp LCTRL  &kp Z  &kp X    &kp C      &kp V        &kp ENTER                &to 0                  &kp N     &kp M            &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
-                             &kp ESC  &kp SPACE  &lt 6 ENTER                                                  &kp LGUI  &kp PRINTSCREEN  &mo 7
+&kp T     &kp I      &kp Q  &kp W    &kp E      &kp R                                 &kp LG(G)              &kp Y     &kp U            &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB   &kp LSHFT  &kp A  &kp S    &kp D      &kp F                     &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp H     &kp J            &kp K      &kp L     &kp UP    &kp ENTER
+&kp LALT  &kp LCTRL  &kp Z  &kp X    &kp C      &kp V        &kp ENTER                &to 0                  &kp N     &kp M            &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
+                            &kp ESC  &kp SPACE  &lt 6 ENTER                                                  &kp LGUI  &kp PRINTSCREEN  &mo 7
             >;
         };
 
