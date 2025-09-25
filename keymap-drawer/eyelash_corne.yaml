@@ -50,7 +50,7 @@ layers:
   - {t: '$$mdi:backspace$$', h: number}
   - {t: '$$mdi:backspace-reverse-outline$$', h: function}
   gaming:
-  - {t: '`', s: '~'}
+  - T
   - I
   - Q
   - W
