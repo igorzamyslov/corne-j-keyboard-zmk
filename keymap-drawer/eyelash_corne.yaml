@@ -94,7 +94,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   - $$mdi:keyboard-esc$$
   - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-return$$', h: number}
+  - number
   - LGUI
   - PRINTSCREEN
   - function
