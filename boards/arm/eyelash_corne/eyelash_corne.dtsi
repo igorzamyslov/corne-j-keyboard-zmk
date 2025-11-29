@@ -10,7 +10,8 @@
 #include <dt-bindings/led/led.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 
-#include "eyelash_corne-layouts.dtsi"
+// Commented out for compatibility with older ZMK forks without physical_layouts.dtsi
+// #include "eyelash_corne-layouts.dtsi"
 
 / {
     model = "eyelash_corne";
@@ -23,7 +24,8 @@
         zmk,kscan = &kscan0;
         zmk,battery = &vbatt;
         zmk,underglow = &led_strip;
-        zmk,physical-layout = &default_layout;
+        // Commented out for compatibility with older ZMK forks
+        // zmk,physical-layout = &default_layout;
         zmk,backlight = &backlight;
     };
 
