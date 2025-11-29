@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - $$mdi:volume-off$$
-  - {t: gaming, h: toggle}
+  - '&to_gaming'
   - N
   - M
   - {t: ',', s: <}
@@ -96,7 +96,7 @@ layers:
   - $$mdi:keyboard-space$$
   - number
   - LGUI
-  - {t: default, h: toggle}
+  - '&to_default'
   - function
   keyboard:
   - $$mdi:bluetooth-off$$
