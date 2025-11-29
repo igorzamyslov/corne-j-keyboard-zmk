@@ -5,7 +5,8 @@
 *
 */
 
-#include <physical_layouts.dtsi>
+// Commented out for compatibility with older ZMK forks
+// #include <physical_layouts.dtsi>
 
 / {
     default_layout: default_layout {
