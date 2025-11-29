@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/underglow.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -88,6 +89,29 @@
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
         tap-ms = <100>;
+    };
+
+    underglow-layer {
+        compatible = "zmk,underglow-layer";
+
+        default {
+            bindings = <
+                // All LEDs off for default layer
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+            >;
+            layer-id = <0>;  // Default layer
+        };
+
+        gaming {
+            bindings = <
+                // Left side LEDs (indices 0-10) - light up WASD area with green
+                &ug ___ &ug ___ &ug_cl ___ GREEN &ug_cl ___ GREEN &ug_cl ___ GREEN &ug_cl ___ GREEN &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                // Right side LEDs (indices 11-20) - all off
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+            >;
+            layer-id = <1>;  // Gaming layer
+        };
     };
 
     keymap {

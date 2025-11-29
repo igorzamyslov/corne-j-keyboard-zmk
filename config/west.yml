@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: darknao
+      url-base: https://github.com/darknao
       # Additional modules containing boards/shields/custom code can be listed here as well.
       # See:
       # - https://zmk.dev/docs/features/modules
@@ -11,8 +13,8 @@ manifest:
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: darknao
+      revision: darknao/rgb-dts
       import: app/west.yml
   self:
     path: config
