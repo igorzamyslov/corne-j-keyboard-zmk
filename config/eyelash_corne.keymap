@@ -4,6 +4,7 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -86,19 +87,19 @@
 
         gaming {
             bindings = <
-&kp T     &kp I      &kp Q  &kp W    &kp E      &kp R                           &kp LG(G)                    &kp Y     &kp U  &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB   &kp LSHFT  &kp A  &kp S    &kp D      &kp F               &kp C_PREV  &kp C_PP         &kp C_NEXT  &kp H     &kp J  &kp K      &kp L     &kp UP    &kp ENTER
-&kp LALT  &kp LCTRL  &kp Z  &kp X    &kp C      &kp V  &kp ENTER                &kp PRINTSCREEN              &kp N     &kp M  &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
-                            &kp ESC  &kp SPACE  &mo 6                                                        &kp LGUI  &to 0  &mo 7
+&kp T     &kp I      &kp Q  &kp W    &kp E      &kp R                           &kp LG(G)              &kp Y     &kp U  &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB   &kp LSHFT  &kp A  &kp S    &kp D      &kp F               &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp H     &kp J  &kp K      &kp L     &kp UP    &kp ENTER
+&kp LALT  &kp LCTRL  &kp Z  &kp X    &kp C      &kp V  &kp ENTER                &none                  &kp N     &kp M  &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
+                            &kp ESC  &kp SPACE  &mo 6                                                  &kp LGUI  &to 0  &mo 7
             >;
         };
 
         keyboard {
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none         &none  &none  &none  &none  &none  &none
-&none       &none         &none         &none         &none         &none                  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none       &none         &none         &none         &none         &none         &none           &none         &none  &none  &none  &none  &none  &none
-                                        &none         &none         &none                                       &none  &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bl BL_INC                &none           &none              &none         &none       &none  &none
+&none       &none         &none         &none         &none         &none                  &none  &bl BL_TOG  &bl BL_CYCLE  &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_NEXT  &none  &none
+&none       &none         &none         &none         &none         &none         &none           &bl BL_DEC                &none           &none              &none         &none       &none  &none
+                                        &none         &none         &none                                                   &kp C_MUTE      &kp C_PP           &none
             >;
         };
 
