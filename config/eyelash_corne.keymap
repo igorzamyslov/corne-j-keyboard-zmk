@@ -25,6 +25,8 @@
     trigger-period-ms = <16>;
 };
 
+&soft_off { hold-time-ms = <2000>; };
+
 / {
     behaviors {
         mtl: mtl {
@@ -90,6 +92,11 @@
         toggle-num-layer {
             bindings = <&tog 6>;
             key-positions = <28 43>;
+        };
+            
+        softoff {
+            bindings = <&soft_off>;
+            key-positions = <1 15 29>;
         };
     };
 
