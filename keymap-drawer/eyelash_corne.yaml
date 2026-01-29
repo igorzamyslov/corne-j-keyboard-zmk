@@ -392,3 +392,8 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:minus-circle-outline$$', type: held}
+combos:
+- p: [28, 43]
+  k: {t: number, h: toggle}
+- p: [1, 15, 29]
+  k: '&soft_off'
