@@ -60,19 +60,13 @@
         to_gaming: to_gaming {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&rgb_ug RGB_ON>
-                , <&to 1>
-                ;
+            bindings = <&rgb_ug RGB_ON &to 1>;
         };
 
         to_default: to_default {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&rgb_ug RGB_OFF>
-                , <&to 0>
-                ;
+            bindings = <&rgb_ug RGB_OFF &to 0>;
         };
     };
 
@@ -88,6 +82,15 @@
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
         tap-ms = <100>;
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        toggle-num-layer {
+            bindings = <&tog 6>;
+            key-positions = <28 43>;
+        };
     };
 
     keymap {
