@@ -111,7 +111,7 @@
                                       &lt 2 ESC     &lt 3 SPACE   &lt 4 TAB                                                                        &lt 5 ENTER              &lt 6 BACKSPACE  &lt 7 DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
         gaming {
