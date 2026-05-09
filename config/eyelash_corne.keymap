@@ -157,18 +157,18 @@
 
         symbol {
             bindings = <
-&none  &kp LS(CARET)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(TILDE)                  &none         &none                 &none      &none      &none     &none     &none
-&none  &kp LS(AMPS)   &kp LS(EXCL)  &kp LBKT      &kp RBKT      &kp EQUAL               &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-&none  &kp LS(PRCNT)  &kp LS(AT)    &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(DLLR)   &none           &none         &none                 &none      &none      &none     &none     &none
-                                    &kp ESC       &kp SPACE     &kp LS(UNDER)                                &none                 &kp BSPC   &kp DEL
+&none  &kp CARET  &kp STAR  &kp LPAR  &kp RPAR  &kp TILDE                  &none         &none                 &none      &none      &none     &none     &none
+&none  &kp AMPS   &kp EXCL  &kp LBKT      &kp RBKT      &kp EQUAL               &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp PRCNT  &kp AT    &kp LBRC  &kp RBRC  &kp DLLR   &none           &none         &none                 &none      &none      &none     &none     &none
+                                    &kp ESC       &kp SPACE     &kp UNDER                                &none                 &kp BSPC   &kp DEL
             >;
         };
 
         number {
             bindings = <
-&none  &kp LS(COLON)  &kp N7  &kp N8  &kp N9     &kp GRAVE                      &none         &none                 &kp LS(LPAR)  &kp LS(RPAR)  &none     &none     &none
-&none  &kp LS(STAR)   &kp N4  &kp N5  &kp N6     &kp LS(PLUS)            &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT     &kp LCTRL     &kp LALT  &kp LGUI  &none
-&none  &kp FSLH       &kp N1  &kp N2  &kp N3     &kp LS(POUND)  &none           &none         &none                 &none         &kp COMMA     &kp DOT   &kp FSLH  &kp BSLH
+&none  &kp COLON  &kp N7  &kp N8  &kp N9     &kp GRAVE                      &none         &none                 &kp LPAR  &kp RPAR  &none     &none     &none
+&none  &kp STAR   &kp N4  &kp N5  &kp N6     &kp PLUS            &none  &none  &none  &kp LS(LA(LC(LGUI)))  &kp LSHFT     &kp LCTRL     &kp LALT  &kp LGUI  &none
+&none  &kp FSLH       &kp N1  &kp N2  &kp N3     &kp POUND  &none           &none         &none                 &none         &kp COMMA     &kp DOT   &kp FSLH  &kp BSLH
                               &kp N0  &kp SPACE  &kp MINUS                                    &kp RET               &none         &kp DEL
             >;
         };
