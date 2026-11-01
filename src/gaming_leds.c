@@ -71,22 +71,16 @@ static void gaming_leds_update(struct k_work *work) {
 
 #if IS_ENABLED(CONFIG_GAMING_LEDS_DEBUG_CHASE)
     if (on) {
-        /* Chain is grouped by column from the inner side: 4,4,4,3,3,3 LEDs.
-         * Colour each LED by its position within its group. */
-        static const uint8_t group_len[] = {4, 4, 4, 3, 3, 3};
-        static const struct led_rgb colours[] = {
-            {.r = 100, .g = 0, .b = 0},
-            {.r = 0, .g = 100, .b = 0},
-            {.r = 0, .g = 0, .b = 100},
-            {.r = 50, .g = 50, .b = 50},
-        };
-        size_t idx = 0;
-        for (size_t g = 0; g < ARRAY_SIZE(group_len); g++) {
-            for (size_t p = 0; p < group_len[g] && idx < STRIP_LEN; p++, idx++) {
-                pixels[idx] = colours[p];
-            }
+        /* Candidate thumb LEDs: blue = {14,17,20}, red = {0,5,10}; green = {12,15,18}. */
+        static const uint8_t blue[] = {14, 17, 20};
+        static const uint8_t red[] = {0, 5, 10};
+        static const uint8_t green[] = {12, 15, 18};
+        for (size_t k = 0; k < 3; k++) {
+            pixels[blue[k]] = (struct led_rgb){.r = 0, .g = 0, .b = 150};
+            pixels[red[k]] = (struct led_rgb){.r = 150, .g = 0, .b = 0};
+            pixels[green[k]] = (struct led_rgb){.r = 0, .g = 150, .b = 0};
         }
-        LOG_INF("gaming_leds: debug colour map rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
+        LOG_INF("gaming_leds: debug candidates rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
         k_msleep(POWER_UP_MS);
         led_strip_update_rgb(strip, pixels, STRIP_LEN);
         return;
