@@ -26,6 +26,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #define STRIP_NODE DT_CHOSEN(zmk_underglow)
 #define STRIP_LEN DT_PROP(STRIP_NODE, chain_length)
+#define POWER_UP_MS 100
 
 static const struct device *strip = DEVICE_DT_GET(STRIP_NODE);
 #if IS_ENABLED(CONFIG_ZMK_RGB_UNDERGLOW_EXT_POWER)
@@ -57,6 +58,8 @@ static void gaming_leds_update(struct k_work *work) {
 
     if (on) {
         ext_power_enable(ext_power);
+        /* The strip needs time to power up; the first frame is lost otherwise. */
+        k_msleep(POWER_UP_MS);
     } else if (!underglow_on) {
         ext_power_disable(ext_power);
     }
@@ -65,6 +68,12 @@ static void gaming_leds_update(struct k_work *work) {
     int err = led_strip_update_rgb(strip, pixels, STRIP_LEN);
     if (err < 0) {
         LOG_ERR("Failed to update gaming LEDs: %d", err);
+    }
+
+    if (on) {
+        /* Send the frame again in case the strip dropped the first one. */
+        k_msleep(POWER_UP_MS);
+        led_strip_update_rgb(strip, pixels, STRIP_LEN);
     }
 }
 
