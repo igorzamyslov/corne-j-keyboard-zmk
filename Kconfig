@@ -1,0 +1,40 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config GAMING_LEDS
+    bool "Light only a few key LEDs while the gaming layer is active"
+    default y
+    depends on ZMK_RGB_UNDERGLOW && ZMK_SPLIT_ROLE_CENTRAL
+
+if GAMING_LEDS
+
+config GAMING_LEDS_LAYER
+    int "Layer index that triggers the indicator LEDs"
+    default 1
+
+# Positions in the WS2812 chain, 0-based. Left half has 21 LEDs (0..20).
+config GAMING_LEDS_KEY_1
+    int "Chain index of the first lit LED (ESC)"
+    default 18
+
+config GAMING_LEDS_KEY_2
+    int "Chain index of the second lit LED (SPACE)"
+    default 19
+
+config GAMING_LEDS_KEY_3
+    int "Chain index of the third lit LED (layer key)"
+    default 20
+
+config GAMING_LEDS_RED
+    int "Red channel (0-255)"
+    default 0
+
+config GAMING_LEDS_GREEN
+    int "Green channel (0-255)"
+    default 80
+
+config GAMING_LEDS_BLUE
+    int "Blue channel (0-255)"
+    default 255
+
+endif # GAMING_LEDS
