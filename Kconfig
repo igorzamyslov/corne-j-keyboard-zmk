@@ -1,0 +1,34 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config GAMING_LEDS
+    bool "Light selected key columns while the gaming layer is active"
+    default y
+    depends on ZMK_RGB_UNDERGLOW
+
+if GAMING_LEDS
+
+# The strip has one controllable LED per key column (the keys of a column,
+# including the thumb key that belongs to it, are wired together). LED 0 is the
+# column nearest the middle of the keyboard, LED 5 the outermost one.
+config GAMING_LEDS_LEFT_MASK
+    hex "Columns lit on the left half (bit n = LED n, 0 = none)"
+    default 0x20
+
+config GAMING_LEDS_RIGHT_MASK
+    hex "Columns lit on the right half (bit n = LED n, 0 = none)"
+    default 0x20
+
+config GAMING_LEDS_RED
+    int "Red channel (0-255)"
+    default 40
+
+config GAMING_LEDS_GREEN
+    int "Green channel (0-255)"
+    default 0
+
+config GAMING_LEDS_BLUE
+    int "Blue channel (0-255)"
+    default 0
+
+endif # GAMING_LEDS

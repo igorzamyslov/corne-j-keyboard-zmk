@@ -33,6 +33,12 @@
 
 / {
     behaviors {
+        // Behavior can be invoked on peripherals, so name must be <= 8 characters.
+        gleds: gleds {
+            compatible = "zmk,behavior-gaming-leds";
+            #binding-cells = <1>;
+        };
+
         mtl: mtl {
             compatible = "zmk,behavior-hold-tap";
             label = "MTL";
@@ -66,13 +72,13 @@
         to_gaming: to_gaming {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_ON &to 1>;
+            bindings = <&rgb_ug RGB_OFF &gleds 1 &to 1>;
         };
 
         to_default: to_default {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_OFF &to 0>;
+            bindings = <&rgb_ug RGB_OFF &gleds 0 &to 0>;
         };
     };
 
@@ -122,7 +128,7 @@
             bindings = <
 &kp T     &kp I      &kp Q  &kp W    &kp E      &kp R                           &kp LG(G)              &kp Y     &kp U        &kp I      &kp O     &kp P     &kp BSPC
 &kp TAB   &kp LSHFT  &kp A  &kp S    &kp D      &kp F               &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp H     &kp J        &kp K      &kp L     &kp UP    &kp ENTER
-&kp LALT  &kp LCTRL  &kp Z  &kp X    &kp C      &kp V  &kp ENTER                &none                  &kp N     &kp M        &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp LALT  &kp LCTRL  &kp Z  &kp X    &kp C      &kp V  &kp ENTER                &to_default            &kp N     &kp M        &kp COMMA  &kp LEFT  &kp DOWN  &kp RIGHT
                             &kp ESC  &kp SPACE  &mo 6                                                  &kp LGUI  &to_default  &mo 7
             >;
         };
