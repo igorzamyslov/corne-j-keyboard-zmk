@@ -39,6 +39,7 @@ static const uint8_t lit[] = {CONFIG_GAMING_LEDS_KEY_1, CONFIG_GAMING_LEDS_KEY_2
 
 static void gaming_leds_update(struct k_work *work) {
     bool on = zmk_keymap_layer_active(CONFIG_GAMING_LEDS_LAYER);
+    LOG_INF("gaming_leds: update, gaming layer active=%d", on);
 
     memset(pixels, 0, sizeof(pixels));
 
@@ -56,8 +57,11 @@ static void gaming_leds_update(struct k_work *work) {
     bool underglow_on = false;
     zmk_rgb_underglow_get_state(&underglow_on);
 
+    LOG_INF("gaming_leds: underglow_on=%d", underglow_on);
+
     if (on) {
-        ext_power_enable(ext_power);
+        int rc = ext_power_enable(ext_power);
+        LOG_INF("gaming_leds: ext_power_enable rc=%d", rc);
         /* The strip needs time to power up; the first frame is lost otherwise. */
         k_msleep(POWER_UP_MS);
     } else if (!underglow_on) {
@@ -66,9 +70,7 @@ static void gaming_leds_update(struct k_work *work) {
 #endif
 
     int err = led_strip_update_rgb(strip, pixels, STRIP_LEN);
-    if (err < 0) {
-        LOG_ERR("Failed to update gaming LEDs: %d", err);
-    }
+    LOG_INF("gaming_leds: led_strip_update_rgb rc=%d", err);
 
     if (on) {
         /* Send the frame again in case the strip dropped the first one. */
@@ -86,6 +88,7 @@ static K_WORK_DEFINE(gaming_leds_work, gaming_leds_update);
 static int gaming_leds_listener(const zmk_event_t *eh) {
     const struct zmk_layer_state_changed *layer_ev = as_zmk_layer_state_changed(eh);
     if (layer_ev != NULL) {
+        LOG_INF("gaming_leds: layer %d state %d", layer_ev->layer, layer_ev->state);
         if (layer_ev->layer == CONFIG_GAMING_LEDS_LAYER) {
             k_work_submit_to_queue(zmk_workqueue_lowprio_work_q(), &gaming_leds_work);
         }
