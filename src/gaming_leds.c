@@ -71,20 +71,24 @@ static void gaming_leds_update(struct k_work *work) {
 
 #if IS_ENABLED(CONFIG_GAMING_LEDS_DEBUG_CHASE)
     if (on) {
-        for (size_t i = 0; i < STRIP_LEN; i++) {
-            pixels[i] = (struct led_rgb){.r = 0, .g = 60, .b = 0};
+        /* Chain is grouped by column from the inner side: 4,4,4,3,3,3 LEDs.
+         * Colour each LED by its position within its group. */
+        static const uint8_t group_len[] = {4, 4, 4, 3, 3, 3};
+        static const struct led_rgb colours[] = {
+            {.r = 100, .g = 0, .b = 0},
+            {.r = 0, .g = 100, .b = 0},
+            {.r = 0, .g = 0, .b = 100},
+            {.r = 50, .g = 50, .b = 50},
+        };
+        size_t idx = 0;
+        for (size_t g = 0; g < ARRAY_SIZE(group_len); g++) {
+            for (size_t p = 0; p < group_len[g] && idx < STRIP_LEN; p++, idx++) {
+                pixels[idx] = colours[p];
+            }
         }
-        LOG_INF("gaming_leds: debug all-on rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
-        k_msleep(2500);
-
-        for (size_t i = 0; i < STRIP_LEN && zmk_keymap_layer_active(CONFIG_GAMING_LEDS_LAYER);
-             i++) {
-            memset(pixels, 0, sizeof(pixels));
-            pixels[i] = (struct led_rgb){.r = 0, .g = 255, .b = 0};
-            LOG_INF("gaming_leds: debug chase led=%d rc=%d", (int)i,
-                    led_strip_update_rgb(strip, pixels, STRIP_LEN));
-            k_msleep(1000);
-        }
+        LOG_INF("gaming_leds: debug colour map rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
+        k_msleep(POWER_UP_MS);
+        led_strip_update_rgb(strip, pixels, STRIP_LEN);
         return;
     }
 #endif
