@@ -12,16 +12,16 @@ if GAMING_LEDS
 # including the thumb key that belongs to it, are wired together). LED 0 is the
 # column nearest the middle of the keyboard, LED 5 the outermost one.
 config GAMING_LEDS_LEFT_MASK
-    hex "Columns lit on the left half (bit n = LED n)"
-    default 0x0E
+    hex "Columns lit on the left half (bit n = LED n, 0 = none)"
+    default 0x00
 
 config GAMING_LEDS_RIGHT_MASK
-    hex "Columns lit on the right half (bit n = LED n)"
-    default 0x38
+    hex "Columns lit on the right half (bit n = LED n, 0 = none)"
+    default 0x20
 
 config GAMING_LEDS_RED
     int "Red channel (0-255)"
-    default 90
+    default 10
 
 config GAMING_LEDS_GREEN
     int "Green channel (0-255)"

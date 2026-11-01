@@ -48,6 +48,10 @@ static volatile bool gaming_on;
 static void gaming_leds_update(struct k_work *work) {
     bool on = gaming_on;
 
+    if (LIT_MASK == 0) {
+        return;
+    }
+
     memset(pixels, 0, sizeof(pixels));
 
     if (on) {
