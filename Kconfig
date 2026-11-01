@@ -21,7 +21,7 @@ config GAMING_LEDS_RIGHT_MASK
 
 config GAMING_LEDS_RED
     int "Red channel (0-255)"
-    default 25
+    default 40
 
 config GAMING_LEDS_GREEN
     int "Green channel (0-255)"
