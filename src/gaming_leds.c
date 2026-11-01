@@ -69,6 +69,26 @@ static void gaming_leds_update(struct k_work *work) {
     }
 #endif
 
+#if IS_ENABLED(CONFIG_GAMING_LEDS_DEBUG_CHASE)
+    if (on) {
+        for (size_t i = 0; i < STRIP_LEN; i++) {
+            pixels[i] = (struct led_rgb){.r = 0, .g = 60, .b = 0};
+        }
+        LOG_INF("gaming_leds: debug all-on rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
+        k_msleep(2500);
+
+        for (size_t i = 0; i < STRIP_LEN && zmk_keymap_layer_active(CONFIG_GAMING_LEDS_LAYER);
+             i++) {
+            memset(pixels, 0, sizeof(pixels));
+            pixels[i] = (struct led_rgb){.r = 0, .g = 255, .b = 0};
+            LOG_INF("gaming_leds: debug chase led=%d rc=%d", (int)i,
+                    led_strip_update_rgb(strip, pixels, STRIP_LEN));
+            k_msleep(1000);
+        }
+        return;
+    }
+#endif
+
     int err = led_strip_update_rgb(strip, pixels, STRIP_LEN);
     LOG_INF("gaming_leds: led_strip_update_rgb rc=%d", err);
 

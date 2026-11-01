@@ -37,4 +37,8 @@ config GAMING_LEDS_BLUE
     int "Blue channel (0-255)"
     default 255
 
+config GAMING_LEDS_DEBUG_CHASE
+    bool "Debug: light all LEDs, then each LED in turn, on entering the layer"
+    default n
+
 endif # GAMING_LEDS
