@@ -33,6 +33,12 @@
 
 / {
     behaviors {
+        // Behavior can be invoked on peripherals, so name must be <= 8 characters.
+        gleds: gleds {
+            compatible = "zmk,behavior-gaming-leds";
+            #binding-cells = <1>;
+        };
+
         mtl: mtl {
             compatible = "zmk,behavior-hold-tap";
             label = "MTL";
@@ -66,13 +72,13 @@
         to_gaming: to_gaming {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_OFF &to 1>;
+            bindings = <&rgb_ug RGB_OFF &gleds 1 &to 1>;
         };
 
         to_default: to_default {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_OFF &to 0>;
+            bindings = <&rgb_ug RGB_OFF &gleds 0 &to 0>;
         };
     };
 

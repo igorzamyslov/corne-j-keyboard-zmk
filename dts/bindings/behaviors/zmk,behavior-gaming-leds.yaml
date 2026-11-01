@@ -1,0 +1,8 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Light the gaming-layer indicator LED columns (1 = on, 0 = off)
+
+compatible: "zmk,behavior-gaming-leds"
+
+include: one_param.yaml

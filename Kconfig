@@ -2,44 +2,33 @@
 # SPDX-License-Identifier: MIT
 
 config GAMING_LEDS
-    bool "Light only a few key LEDs while the gaming layer is active"
+    bool "Light selected key columns while the gaming layer is active"
     default y
-    depends on ZMK_RGB_UNDERGLOW && ZMK_SPLIT_ROLE_CENTRAL
+    depends on ZMK_RGB_UNDERGLOW
 
 if GAMING_LEDS
 
-config GAMING_LEDS_LAYER
-    int "Layer index that triggers the indicator LEDs"
-    default 1
+# The strip has one controllable LED per key column (the keys of a column,
+# including the thumb key that belongs to it, are wired together). LED 0 is the
+# column nearest the middle of the keyboard, LED 5 the outermost one.
+config GAMING_LEDS_LEFT_MASK
+    hex "Columns lit on the left half (bit n = LED n)"
+    default 0x0E
 
-# Positions in the WS2812 chain, 0-based. Left half has 21 LEDs (0..20).
-config GAMING_LEDS_KEY_1
-    int "Chain index of the first lit LED (ESC)"
-    default 18
-
-config GAMING_LEDS_KEY_2
-    int "Chain index of the second lit LED (SPACE)"
-    default 19
-
-config GAMING_LEDS_KEY_3
-    int "Chain index of the third lit LED (layer key)"
-    default 20
+config GAMING_LEDS_RIGHT_MASK
+    hex "Columns lit on the right half (bit n = LED n)"
+    default 0x38
 
 config GAMING_LEDS_RED
     int "Red channel (0-255)"
-    default 0
+    default 90
 
 config GAMING_LEDS_GREEN
     int "Green channel (0-255)"
-    default 80
+    default 0
 
 config GAMING_LEDS_BLUE
     int "Blue channel (0-255)"
-    default 255
+    default 0
 
 endif # GAMING_LEDS
-
-config GAMING_LEDS_CALIBRATE
-    bool "Debug: map each LED in the strip to the key position that is pressed for it"
-    default n
-    depends on ZMK_RGB_UNDERGLOW
