@@ -1,5 +1,5 @@
 # Copyright (c) 2025 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-zephyr_library()
-zephyr_library_sources_ifdef(CONFIG_GAMING_LEDS src/gaming_leds.c)
+# Built into the app target so the ZMK include paths are available.
+target_sources_ifdef(CONFIG_GAMING_LEDS app PRIVATE src/gaming_leds.c)
