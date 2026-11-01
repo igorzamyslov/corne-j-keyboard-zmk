@@ -69,24 +69,6 @@ static void gaming_leds_update(struct k_work *work) {
     }
 #endif
 
-#if IS_ENABLED(CONFIG_GAMING_LEDS_DEBUG_CHASE)
-    if (on) {
-        /* Candidate thumb LEDs: blue = {14,17,20}, red = {0,5,10}; green = {12,15,18}. */
-        static const uint8_t blue[] = {14, 17, 20};
-        static const uint8_t red[] = {0, 5, 10};
-        static const uint8_t green[] = {12, 15, 18};
-        for (size_t k = 0; k < 3; k++) {
-            pixels[blue[k]] = (struct led_rgb){.r = 0, .g = 0, .b = 150};
-            pixels[red[k]] = (struct led_rgb){.r = 150, .g = 0, .b = 0};
-            pixels[green[k]] = (struct led_rgb){.r = 0, .g = 150, .b = 0};
-        }
-        LOG_INF("gaming_leds: debug candidates rc=%d", led_strip_update_rgb(strip, pixels, STRIP_LEN));
-        k_msleep(POWER_UP_MS);
-        led_strip_update_rgb(strip, pixels, STRIP_LEN);
-        return;
-    }
-#endif
-
     int err = led_strip_update_rgb(strip, pixels, STRIP_LEN);
     LOG_INF("gaming_leds: led_strip_update_rgb rc=%d", err);
 
